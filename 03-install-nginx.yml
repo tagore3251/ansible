@@ -1,0 +1,13 @@
+- name: Install and Run nginx
+  hosts: web
+  become: yes # -b , # allowing tasks to run with superuser (root) access.
+  tasks:
+  - name: install nginx
+    ansible.builtin.package: #ansible.builtin.dnf -> it is not work for other os like Ubuntu , ansible.builtin.package -> it will automatically understood the os and run that cmd on background..
+      name: nginx
+      state: present # present = install ,absent = remove
+  - name: start and enable the nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
