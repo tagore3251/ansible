@@ -1,0 +1,7 @@
+- name: PING      # Playbook name
+  hosts: web      # Targeting the 'web' group of hosts
+  tasks:          # Defining tasks to be executed ,#task=module=collection
+  - name: ping the server   # Task description
+    ansible.builtin.ping:   # Using Ansible's built-in 'ping' module to verify connectivity
+
+# To Run This by using - ansible-playbook -i inventory.ini -e ansible_user=<user-name> -e ansible_password=<password> 01-ping-playbook.yml
